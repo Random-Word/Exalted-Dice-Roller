@@ -53,7 +53,8 @@ function _ex_roll(numDice, doublesNum, targetNum, rerollNum) {
     return ({hits: result.hits+hits, rolls: result.rolls.concat(rolls)});
 }
 
-function gen_dice_html(value, index, color, doublesNum, targetNum, rerollNum) {
+function gen_dice_html(value, index, doublesNum, targetNum, rerollNum) {
+    color = black;
     if (rerollNum.indexOf(parseInt(value)) != -1) {
         color="#730505";
     }
@@ -104,7 +105,7 @@ function roll_call(who, rolls, hits, numDice, doublesNum, targetNum, rerollNum) 
     html += "<div style=\"" + formulaStyle + ";" + formattedFormulaStyle + "\">";
     html += "   <div style=\"" + dicegroupingStyle + ";" + uisortableStyle + "\" data-groupindex=\"0\">";
     for (var i = 0; i < rolls.length; i++) {
-        html += gen_dice_html(rolls[i], i, color, doublesNum, targetNum, rerollNum)
+        html += gen_dice_html(rolls[i], i, doublesNum, targetNum, rerollNum)
     }
     html += "   </div>";
     html += "</div>";
